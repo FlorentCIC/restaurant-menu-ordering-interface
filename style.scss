@@ -42,6 +42,7 @@ $breakpoint: 1000px;
     -webkit-font-smoothing: antialiased;
     font-family: "Font Awesome 5 Free";
     font-weight: $font-weight;
+    cursor: pointer;
   }
 
 
@@ -183,10 +184,12 @@ header {
 
 /*EXPLORER*/
 .explorer {
-    height: 45vh;
+    height: auto;
+    min-height: 0;
     text-align: center;
-    margin-top: -16px;
-    margin-bottom: 5rem;
+    margin-top: 0;
+    margin-bottom: 2rem;
+    padding-bottom: 2rem;
     & h2 {
       font-size: 1.5rem;
       margin: 1rem;
@@ -243,23 +246,28 @@ header {
 /*TUTO*/
 .tuto {
     background-color: white;
-    height: 66vh;
-    margin-top: -80px;
+    height: auto;
+    margin-top: 0;
     counter-reset: steps;
     margin-bottom: 2rem;
-    margin-left: -14px;
+    margin-left: 0;
+    padding-bottom: 1rem;
     & ol {
     display: flex;
     gap: 2rem;
-    @media (max-width: $breakpoint) {
-    flex-direction: column;
-    margin-right: 15px;
-    }
+
+
+  @media (max-width: $breakpoint) {
+  flex-direction: column;
+  margin-right: 0;
+  padding-left: 2rem;
+  padding-right: 1rem;
+  }
 }
 
 @media (min-width: 1001px) {
     & ol {
-    padding-top: 80px;  
+    padding-top: 2rem;  
     
     & li {
       padding: 2.5rem 2rem; 
@@ -312,6 +320,18 @@ header {
     font-size: 1.5rem;
     }
  }
+}
+
+/* Ajustement des icônes sur mobile */
+@media (max-width: 426px) {
+  .tuto li {
+    padding-left: 2rem;
+  }
+
+  .tuto li i.fas {
+    margin-right: 1rem;
+    flex-shrink: 0;
+  }
 }
 
 .h2fonction {
@@ -571,5 +591,119 @@ section.order {
     button {
       @include base-button;
     }
+  }
+}
+
+
+/* CORRECTIONS ESPACEMENTS — P3 OHMYFOOD */
+@media (max-width: 1000px) {
+  .explorer {
+    padding-bottom: 1.5rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .tuto {
+    margin-bottom: 1.5rem;
+  }
+
+  .tuto ol {
+    padding-top: 0;
+  }
+
+  #homepage .menus {
+    margin-bottom: 2rem;
+  }
+
+  #page-resto section.order {
+    height: auto;
+    padding: 2.5rem 0 3rem;
+  }
+}
+
+
+/* CORRECTIONS FINALES — ESPACEMENT ET ALIGNEMENT */
+
+/* Accueil : espacement cohérent entre Explorer et Fonctionnement. */
+#homepage .explorer {
+  margin-bottom: 0;
+  padding-bottom: 2rem;
+}
+
+#homepage .tuto {
+  margin-top: 0;
+  padding-top: 0;
+  padding-bottom: 2rem;
+}
+
+#homepage .h2fonction {
+  box-sizing: border-box;
+  width: 100%;
+  margin: 0 auto 1.5rem;
+  padding: 2rem 1rem 0;
+  text-align: center;
+}
+
+/* Les étapes commencent après le titre, sans padding supérieur ajouté. */
+#homepage .tuto ol {
+  margin-top: 0;
+  padding-top: 0;
+}
+
+/* Menus des pages restaurants : colonnes régulières et contenu flexible. */
+#page-resto .menus {
+  align-items: start;
+}
+
+#page-resto .menus__category {
+  min-width: 0;
+}
+
+#page-resto .menu-item {
+  min-width: 0;
+}
+
+#page-resto .menu-item__description {
+  flex: 1 1 auto;
+  min-width: 0;
+}
+
+/* Évite que les descriptions longues débordent de leur carte. */
+#page-resto .menu-item__description h4,
+#page-resto .menu-item__description p {
+  overflow-wrap: anywhere;
+}
+
+/* Adaptation aux petits écrans. */
+@media (max-width: 1000px) {
+  #homepage .explorer {
+    margin-bottom: 0;
+    padding-bottom: 1.5rem;
+  }
+
+  #homepage .tuto {
+    padding-bottom: 1.5rem;
+  }
+
+  #homepage .h2fonction {
+    margin-bottom: 1.25rem;
+    padding-top: 1.5rem;
+  }
+
+  #homepage .tuto ol {
+    padding-right: 1rem;
+    padding-left: 2rem;
+  }
+
+  #page-resto .menus {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+/* Réduction de l'espace autour du bouton Commander sur mobile */
+@media (max-width: 426px) {
+  #page-resto section.order {
+    height: auto;
+    min-height: 0;
+    padding: 1rem 0 1.5rem;
   }
 }

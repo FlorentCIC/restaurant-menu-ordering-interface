@@ -1,21 +1,13 @@
 {
-  "name": "ohmyfood",
+  "name": "restaurant-menu-ordering-interface",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "Site responsive de consultation de menus et de commande de repas en ligne proposant quatre restaurants. Réalisé en HTML et SCSS.",
   "scripts": {
-    "sass": "sass --watch style.scss style.css"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/SnakeVenom5/FLorentCicek_3_09112021.git"
+    "sass": "sass --watch style.scss style.css",
+    "build": "sass style.scss style.css"
   },
   "author": "",
   "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/SnakeVenom5/FLorentCicek_3_09112021/issues"
-  },
-  "homepage": "https://github.com/SnakeVenom5/FLorentCicek_3_09112021#readme",
   "dependencies": {
     "sass": "^1.49.9"
   }
